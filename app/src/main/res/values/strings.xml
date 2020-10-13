@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Android Hacker News</string>
+    <string name="offline_mode_message">Displaying news feed in offline-mode</string>
+    <string name="online_mode_message">Yay, we\'re online again.</string>
+    <string name="bloken_link_message">This news item has broken link.</string>
+    <string name="story_deleted_message">News item has been deleted.</string>
+</resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="story"
+            type="com.montdeska.android_hacker_news.data.local.models.Story" />
+
+        <variable
+            name="storyClickListener"
+            type="com.montdeska.android_hacker_news.ui.stories.StoriesAdapter.StoryClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/swipeableItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_news_item"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{() -> storyClickListener.onClick(story)}">
+
+        <TextView
+            android:id="@+id/storyTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/text"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:storyTitle="@{story}"
+            tools:text="Nine in ten adults think buying latest smartphone is waste of money" />
+
+        <TextView
+            android:id="@+id/storyAuthor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_light"
+            android:textColor="@color/text"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/storyTitle"
+            app:storyAuthor="@{story}"
+            tools:text="Abraham" />
+
+        <TextView
+            android:id="@+id/storyCreatedAt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_light"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@id/storyAuthor"
+            app:layout_constraintTop_toBottomOf="@id/storyTitle"
+            app:storyCreatedAt="@{story}"
+            tools:text="12h" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1.5dip"
+            android:layout_marginTop="16dp"
+            android:background="@color/separator"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/storyCreatedAt" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
